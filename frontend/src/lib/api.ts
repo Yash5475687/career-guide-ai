@@ -1,9 +1,9 @@
-const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:4000/api";
+const BASE_URL = import.meta.env.VITE_API_URL || "https://career-guide-ai-t4ku.onrender.com/api";
 
 class ApiError extends Error {
   status: number;
   constructor(message: string, status: number) {
-    super(message);
+    super(message)
     this.status = status;
   }
 }
