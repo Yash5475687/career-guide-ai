@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html.light {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-ink text-white font-body antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+html.light body {
+  @apply bg-paper text-ink-2;
+}
+
+::selection {
+  background: #22c98355;
+}
+
+:focus-visible {
+  outline: 2px solid #22c983;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.trail-line {
+  background: linear-gradient(180deg, #22c983 0%, #4c7ee0 55%, #f5a623 100%);
+}
+
+.glass {
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.card-surface {
+  @apply bg-ink-2/80 border border-ink-border;
+}
+html.light .card-surface {
+  @apply bg-white border-paper-border;
+}
+
+.toast-text { color: rgba(255,255,255,0.9); }
+html.light .toast-text { color: #171F33; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes drawPath { from { stroke-dashoffset: 1000; } to { stroke-dashoffset: 0; } }
+
+.scrollbar-thin::-webkit-scrollbar { height: 6px; width: 6px; }
+.scrollbar-thin::-webkit-scrollbar-thumb { background: #2a334a; border-radius: 4px; }
+html.light .scrollbar-thin::-webkit-scrollbar-thumb { background: #d8d3c6; }
